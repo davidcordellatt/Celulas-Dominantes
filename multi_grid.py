@@ -1,14 +1,31 @@
 import random
 
 def multi_grid(grid):
-  # Autocompletado para evitar errores
+
+  # Verificando tamaño de la Cuadricula
+  if grid == []:
+    grid = [[]]
+  
+  min_len = 3
   max_len = max([len(col) for col in grid])
-  max_num = max([max(col) for col in grid if col !=[]])
+  
+  # Autocompletado para evitar errores
+  if len(grid) < min_len:
+    while len(grid) < min_len:
+      grid.append([])
+
   for col in grid:
+    if len(col) < min_len:
+      while len(col) < min_len:
+        aux = random.randint(0, 21)
+        col.append(aux)
+       
     if len(col) < max_len:
       while len(col) < max_len:
-        col.append(random.randint(1, max_num))
-        
+        aux = random.randint(0, 21)
+        col.append(aux)
+
+  #Analizando cuadricula
   dom = 0
   n = len(grid)
   m = len(grid[0])
@@ -75,11 +92,7 @@ def multi_grid(grid):
         if under > grid[col][idx - 1] and under > grid[col][idx + 1] and under > grid[col - 1][idx] and under > grid[col - 1][idx - 1] and under > grid[col - 1][idx + 1]:
           print(f'Under line, {under}')
           dom +=1
-
-
-
-
-        
+          
       else:
         cross = grid[col][idx]
         if cross > grid[col][idx - 1] and cross > grid[col][idx + 1] and cross > grid[col - 1][idx] and cross > grid[col + 1][idx] and cross > grid[col + 1][idx + 1] and cross > grid[col + 1][idx - 1] and cross > grid[col - 1][idx - 1] and cross > grid[col - 1][idx + 1]:

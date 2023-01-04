@@ -1,21 +1,42 @@
+import random
+
 def uni_grid(grid: list):
+
+  # Verificando tamaño de la Cuadricula
+  min_len = 3
+  if grid == [[]]:
+    # Autocompletado para evitar errores
+    for _ in range(min_len):
+      aux = random.randint(0, 21)
+      grid[0].append(aux)
+  
+  
+  
+  
+
+  #Analizando cuadricula
   M = len(grid[0])
   idx = 0
   dom = 0
   while idx < M:
     if idx == 0:
+      #Primer Digito
       if grid[0][idx] > grid[0][idx + 1]:
-        print(f'Dominante, {grid[0][idx]}')
+        print(f'Primer digito, {grid[0][idx]}')
         dom += 1
 
+    
     if idx == M - 1:
+      #Ultimo Digito
       if grid[0][-2] < grid[0][-1]:
-        print(f'Dominante, {grid[0][-2]}')
+        print(f'Ultimo Digito, {grid[0][-1]}')
         dom += 1 
-      
+
+    
     if idx > 0 and idx < M - 1:
+      #Intermedio
       if grid[0][idx] > grid[0][idx - 1] and grid[0][idx] > grid[0][idx + 1]:
-        print(f'Dominante, {grid[0][idx]}')
+        print(f'Intermedio, {grid[0][idx]}')
         dom += 1
         
     idx += 1

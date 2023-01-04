@@ -1,17 +1,31 @@
 import random
 
 def bi_grid(grid: list):
-
-  # Autocompletado para evitar errores
+  # Verificando tamaño de la Cuadricula
+  if grid == []:
+    grid = [[]]
+  
+  # Verificando tamaño de la Cuadricula
+  min_len = 2
   max_len = max([len(col) for col in grid])
-  max_num = max([max(col) for col in grid if col !=[]])
+  
+  # Autocompletado para evitar errores
+  if len(grid) < min_len:
+    while len(grid) < min_len:
+      grid.append([])
+
   for col in grid:
+    if len(col) < min_len:
+      while len(col) < min_len:
+        aux = random.randint(0, 21)
+        col.append(aux)
+       
     if len(col) < max_len:
       while len(col) < max_len:
-        col.append(random.randint(1, max_num))
-    
-        
-  
+        aux = random.randint(0, 21)
+        col.append(aux)
+         
+  #Analizando cuadricula
   M = len(grid[0])
   idx = 0
   dom = 0
