@@ -8,7 +8,7 @@
 
 - Devuelve los numeros dominantes de la cuadricula dada en main.py si ésta es de una sola dimensión. 
 
-- El tamaño minimo de la cuadricula es de 3.
+- El tamaño minimo de la cuadricula es de 1 * 3.
 
 - Tiene opción de autocompletado para evitar errores, segun el tamaño minimo.
 
